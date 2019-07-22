@@ -1,0 +1,14 @@
+# 数据展现1 Presentation Area to Support Business Intelligence
+DW/BI表示区域用于组织、存储数据，并使数据可供用户、报表和其他分析性BI应用程序直接查询。
+> The DW/BI presentation area is where data is organized, stored, and made available for direct querying by users, report writers, and other analytical BI applications.
+
+由于后台ETL系统不允许访问，对业务人员而言，表示区域就是DW/BI环境；
+> Because the back room ETL system is off-limits, the presentation area is the DW/BI environment as far as the business community is concerned; 
+
+我们对展示区有几点强烈的意见。首先，我们坚持在维度模式（关系星型模式或OLAP多维数据集）中呈现、存储和访问数据。幸运的是，行业已经成熟到我们不再讨论这种方法的地步；它得出的结论是，维度建模是向DW/BI用户提供数据最可行的技术。
+
+> We have several strong opinions about the presentation area. First of all, we insist that the data be presented, stored, and accessed in dimensional schemas, either relational star schemas or OLAP cubes. Fortunately, the industry has matured to the  point where we’re no longer debating this approach; it has concluded that dimensional modeling is the most viable technique for delivering data to DW/BI users.
+> 
+关于表示区域，我们的第二个关注点是它必须包含详细的原子数据。原子数据需要承受不可预测的即席用户查询的攻击。尽管表示区域也可能包含增强性能的聚合数据，但如果没有维度形式的底层粒度数据，则无法完整地传递这些摘要。换句话说，当原子数据被锁定在规范化模型中时，只在维度模型中存储摘要数据是完全不可接受的。期望用户在维度数据中钻取到最精细的层次，然后在最后一步失去维度表示的好处是不现实的。尽管DW/BI用户和应用程序可能很少查看订单上的单行项目，但他们可能对上周针对特定尺寸（或风味、包装类型或制造商）产品的订单非常感兴趣，这些产品适用于过去6个月内首次购买（或居住在特定的说明或具有某些信用条款）。最细粒度的数据必须在表示区域中可用，以便用户可以提出尽可能精确的问题。因为用户的需求是不可预测的，并且不断变化的，所以您必须提供对精致细节的访问，以便他们能够汇总起来解决当前的问题。
+
+> Our second stake in the ground about the presentation area is that it must contain detailed, atomic data. Atomic data is required to withstand assaults from unpredictable ad hoc user queries. Although the presentation area also may contain performance-enhancing aggregated data, it is not suffi cient to deliver these summaries without the underlying granular data in a dimensional form. In other words, it is completely unacceptable to store only summary data in dimensional models while the atomic data is locked up in normalized models. It is impractical to expect a user to drill down through dimensional data almost to the most granular level and then lose the benefi ts of a dimensional presentation at the fi nal step. Although DW/BI users and applications may look infrequently at a single line item on an order, they may be very interested in last week’s orders for products of a given size (or flavor, package type, or manufacturer) for customers who fi rst purchased withinthe last 6 months (or reside in a given state or have certain credit terms). The most finely grained data must be available in the presentation area so that users can ask the most precise questions possible. Because users’ requirements are unpredictable and constantly changing, you must provide access to the exquisite details so they can roll up to address the questions of the moment.
